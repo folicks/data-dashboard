@@ -1,0 +1,15 @@
+.brewery-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.brewery-table th,
+.brewery-table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+}
+.brewery-table th {
+  background: #e0e0e0;
+}
+.brewery-table tr:nth-child(even) {
+  background: #fafafa;
+}
