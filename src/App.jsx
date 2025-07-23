@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import StatsDisplay from './components/StatsDisplay.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import TypeFilter from './components/TypeFilter.jsx';
-import BreweryTable from './components/BreweryTable.jsx';
 
 function App() {
   const [breweries, setBreweries] = useState([]);
@@ -33,12 +30,11 @@ function App() {
   );
 
   return (
-    <div className="App">
-      <h1>Brewery Dashboard</h1>
-      <StatsDisplay breweries={breweries} filtered={filtered} />
-      <SearchBar search={search} setSearch={setSearch} />
-      <TypeFilter breweries={breweries} type={type} setType={setType} />
-      {loading ? <p>Loading...</p> : <BreweryTable breweries={filtered} />}
+    <div>
+      <div style={{ textAlign: 'center', padding: '1rem 0', background: '#f9f9f9', marginBottom: '2rem' }}>
+        <h1>Brewery Dashboard</h1>
+      </div>
+      <Outlet context={{ breweries, filtered, search, setSearch, type, setType, loading }} />
     </div>
   );
 }
